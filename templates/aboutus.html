@@ -1,0 +1,162 @@
+<!--four photos, description, title, date-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>About Us - Empower</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+            crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+</head>
+<body style="background-image: url(https://cdn.discordapp.com/attachments/806399289215287346/1116225508192026705/bg.jpg); background-size: cover;">
+<div class="container">
+    <div class="row mt-3">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav nav-underline">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'gallery' %}">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'events' %}">Events</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'shop' %}">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'about-us' %}">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{% url 'contact' %}">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="row text-center mt-4">
+        <h2>About Us</h2>
+        <h3>Executives</h3>
+    </div>
+
+    <div class="row mt-4 text-center">
+        <div class="col-lg-6 col-sm-12">
+            <img src="https://cdn.discordapp.com/attachments/1106380172967542846/1119089172167282698/Screen_Shot_2023-06-15_at_7.20.46_PM.png"
+                 class="img-fluid" style="height: 70%;">
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <img src="https://cdn.discordapp.com/attachments/1106380172967542846/1119089210696142919/Screen_Shot_2023-06-15_at_7.20.55_PM.png"
+                 class="img-fluid" style="height: 70%;">
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <img src="https://cdn.discordapp.com/attachments/1106380172967542846/1119089292887719986/Screen_Shot_2023-06-15_at_7.21.15_PM.png"
+                 class="img-fluid" style="height: 70%;">
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <img src="https://cdn.discordapp.com/attachments/1106380172967542846/1119089247127883877/Screen_Shot_2023-06-15_at_7.21.04_PM.png"
+                 class="img-fluid" style="height: 70%;">
+        </div>
+        <!-- <div class="col-6">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://cdn.discordapp.com/attachments/1106380172967542846/1119342310900121651/image.png" class="py-2 px-2 img-fluid rounded-circle">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Mahrosh Burhan - President</h3>
+                            <h5 class="card-text"><i class="bi bi-envelope"></i> mahroshburhan@gmail.com</h5>
+                            <h5 class="card-text"><i class="bi bi-instagram"></i> mahrosh.b_</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://cdn.discordapp.com/attachments/1106380172967542846/1119342311168540702/image.png" class="py-2 px-2 img-fluid rounded-circle">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Srishti Pathak - Vice President</h3>
+                            <h5 class="card-text"><i class="bi bi-envelope"></i> srishtipathak007@gmail.com</h5>
+                            <h5 class="card-text"><i class="bi bi-instagram"></i> srishti2u</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://cdn.discordapp.com/attachments/1106380172967542846/1119342496183496844/image.png" class="py-2 px-2 img-fluid rounded-circle">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Maryam Naseer - Treasurer</h3>
+                            <h5 class="card-text"><i class="bi bi-envelope"></i> maryamnaseer006@gmail.com</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="https://cdn.discordapp.com/attachments/1106380172967542846/1119342311462150224/image.png" class="py-2 px-2 img-fluid rounded-circle">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title">Shazia Shameerullah - Secretary</h3>
+                            <h5 class="card-text"><i class="bi bi-envelope"></i> Shazia.Shameerullah@gmail.com</h5>
+                            <h5 class="card-text"><i class="bi bi-instagram"></i> shazia_shasha</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> //-->
+    </div>
+
+    <div class="row">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <p class="col-md-4 mb-0 text-body-secondary">Empower Me, 501c3</p>
+
+            <a href=""><img width="40" height="32"
+                            src="https://cdn.discordapp.com/attachments/806399289215287346/1116225724240625804/IMG_4440.png"></a>
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary">Tax ID: {{ tax_id }}</a></li>
+                <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link px-2 text-body-secondary">Contact</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</div>
+</body>
+</html>

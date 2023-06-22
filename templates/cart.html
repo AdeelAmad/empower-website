@@ -1,16 +1,15 @@
-<!--Empower Logo Bigger-->
-<!--Mission Statement-->
-<!--What We Do-->
-<!--Motto-->
+<!--four photos, description, title, date-->
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home - Empower</title>
+
+    <title>Cart</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
             crossorigin="anonymous"></script>
@@ -20,6 +19,7 @@
             font-family: 'Montserrat', sans-serif;
         }
     </style>
+
 </head>
 <body style="background-image: url(https://cdn.discordapp.com/attachments/806399289215287346/1116225508192026705/bg.jpg); background-size: cover;">
 <div class="container">
@@ -34,7 +34,7 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <ul class="navbar-nav nav-underline">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
+                            <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{% url 'gallery' %}">Gallery</a>
@@ -51,44 +51,77 @@
                         <li class="nav-item">
                             <a class="nav-link" aria-current="page" href="{% url 'contact' %}">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'cart' %}"><i
+                                    class="bi bi-cart"></i> Cart</a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-
-    <div class="row text-center mt-4 mx-2">
-        <div class="alert" role="alert" style="background-color: {{ bannerColor }}">
-            <h{{ bannerSize }} class="alert-heading mt-2"><b>{{ banner }}</b></h{{ bannerSize }}>
-        </div>
-    </div>
-
-
-    <div class="row align-items-center">
-        <div class="col-sm-12 col-lg-6 py-5">
-            <img src="https://cdn.discordapp.com/attachments/806399289215287346/1116225724240625804/IMG_4440.png"
-                 class="img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-        </div>
-        <div class="col-sm-12 col-lg-6 py-5">
-            <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Enabling all communities with the power of
-                art</h1>
-            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                <button type="button" class="btn btn-success btn-lg px-4 me-md-2">Shop</button>
-                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Gallery</button>
+    {% if messages %}
+        <div class="row">
+            <div class="col-12">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
             </div>
         </div>
+    {% endif %}
+    <div class="row text-center mt-4">
+        <h2>Cart</h2>
     </div>
 
-    <div class="row text-center">
-        <div class="col-sm-12 col-lg-6">
-            <h3>What we do</h3>
-            <p>{{ what }}</p>
-        </div>
-        <div class="col-sm-12 col-lg-6">
-            <h3>Our Mission</h3>
-            <p>{{ mission }}</p>
-        </div>
+    <div class="row mt-4">
+        {% if empty %}
+            <div class="col text-center">
+                <h3>Your cart is empty</h3>
+                <a class="btn btn-primary" href="{% url 'shop' %}">Return To Shop</a>
+            </div>
+
+
+        {% else %}
+            <div class="col">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Item</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Remove</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in items %}
+                        <tr>
+                            <td class="align-middle"><img src="{{ item.image }}" class="img-fluid rounded-4"
+                                                          style="height: 64px;"> {{ item.name }}</td>
+                            <td class="align-middle">${{ item.price }}</td>
+                            <td class="align-middle"><a class="btn btn-danger"
+                                                        href="{% url 'remove_cart' %}?item={{ item.stripeid }}">Remove</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% endif %}
     </div>
+    {% if not empty %}
+        <div class="row">
+            <div class="col">
+                <a href="{% url 'shop' %}" class="btn btn-primary">Continue Shopping</a>
+            </div>
+            <div class="col text-end">
+                <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
+            </div>
+
+        </div>
+    {% endif %}
+
+
 
     <div class="row">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

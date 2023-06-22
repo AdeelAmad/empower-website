@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-0d0%@4vz-@bhk6dzl7u#3%hqr-sen9+#-#2wu^1+_8jwocmf$_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['testbed2.agradehost.com']
+ALLOWED_HOSTS = ['testbed2.agradehost.com', '*']
 
 
 # Application definition
@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'empowersite.context_processors.tax_id'
             ],
         },
     },
@@ -126,3 +127,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
+
+SESSION_COOKIE_AGE = 259200 # 3 days

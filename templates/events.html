@@ -64,18 +64,16 @@
             {% for o in upcoming %}
                 <div class="col-lg-6 col-sm-12 mt-2">
                     <div class="card">
-                        <div class="row">
-                            <div class="col-lg-4 col-sm-12">
-                                <img src="{{ o.image }}" class="img-fluid">
-                            </div>
-                            <div class="col-lg-8 col-sm-12">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ o.title }}</h5>
-                                    <p class="card-text">
-                                        {{ o.description }}
-                                    </p>
-                                    <p class="card-text"><small class="text-body-secondary">{{ o.date }}</small></p>
-                                </div>
+                        <div>
+                            <img src="{{ o.image }}" class="img-fluid">
+                        </div>
+                        <div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ o.title }}</h5>
+                                <p class="card-text">
+                                    {{ o.description }}
+                                </p>
+                                <p class="card-text"><small class="text-body-secondary">{{ o.date }}</small></p>
                             </div>
                         </div>
                     </div>

@@ -3,7 +3,7 @@ from empower.models import homePage, contactPage, event, image, product
 from django.contrib import messages
 import stripe
 
-stripe.api_key = 'sk_test_51NLc4lKpCU5NhQdKl2ogZdZ9q9tkscap9pYbo4K62fT9wXgOq03HzG28tzvLKkFXGt9f1AyAo34XX6k81tZg27Pj00yTAVeNfA'
+stripe.api_key = ''
 
 
 def index(request):
@@ -122,7 +122,7 @@ def checkout(request):
         line_items=[
             {
                 # Provide the exact Price ID (for example, pr_1234) of the product you want to sell
-                'price': 'price_1NLsuxKpCU5NhQdKa0U1vwXI',
+                'price': '',
                 'quantity': 1,
             },
         ],
